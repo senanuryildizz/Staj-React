@@ -1,0 +1,34 @@
+.footer {
+  background-color: #003366;
+  color: white;
+  margin-top: 40px;
+  padding: 30px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 220px;
+}
+
+.footer-section h3 {
+  color: #ffd700;
+  margin-bottom: 15px;
+}
+
+.footer-section p {
+  margin: 8px 0;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.3);
+  margin-top: 25px;
+  padding-top: 15px;
+  text-align: center;
+}

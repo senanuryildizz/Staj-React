@@ -1,0 +1,29 @@
+[
+  {
+    "id":1,
+    "from":"İstanbul",
+    "to":"Ankara",
+    "airline":"Türk Hava Yolları",
+    "price":1850,
+    "time":"08:30",
+    "direct":true
+  },
+  {
+    "id":2,
+    "from":"İstanbul",
+    "to":"İzmir",
+    "airline":"Pegasus",
+    "price":1250,
+    "time":"13:45",
+    "direct":false
+  },
+  {
+    "id":3,
+    "from":"Ankara",
+    "to":"Antalya",
+    "airline":"AJet",
+    "price":1600,
+    "time":"18:20",
+    "direct":true
+  }
+]
