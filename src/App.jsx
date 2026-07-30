@@ -9,6 +9,9 @@ import Contact from "./pages/Contact";
 
 import Flights from "./pages/Flights";
 
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+
 function App() {
   return (
     <>
@@ -19,6 +22,8 @@ function App() {
         <Route path="/ucuslar" element={<Flights />} />
         <Route path="/hakkimizda" element={<About />} />
         <Route path="/iletisim" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
 
       <Footer />

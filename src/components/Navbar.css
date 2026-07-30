@@ -1,47 +1,178 @@
+/* ===========================
+   Navbar
+=========================== */
+
 .navbar{
-    background: linear-gradient(90deg,#003366,#0057b8);
-    color:white;
+    background: linear-gradient(90deg,#003366,#0057B8);
+    color:#fff;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:18px 50px;
-    box-shadow:0 3px 10px rgba(0,0,0,.2);
+    padding:16px 50px;
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
+
+/* Logo */
 
 .logo{
     display:flex;
     align-items:center;
     gap:10px;
-    font-size:26px;
-    font-weight:bold;
+    font-size:24px;
+    font-weight:700;
+    white-space:nowrap;
 }
 
 .logo span{
-    color:#ffd700;
+    color:#FFD700;
 }
+
+/* Menü */
 
 .menu{
     display:flex;
-    list-style:none;
+    align-items:center;
+    justify-content:center;
     gap:30px;
+    list-style:none;
     margin:0;
     padding:0;
+    flex:1;
+}
+
+.menu li{
+    display:flex;
+    align-items:center;
 }
 
 .menu a{
     color:white;
     text-decoration:none;
-    font-size:17px;
-    transition:.3s;
+    font-size:16px;
     font-weight:500;
+    transition:all .3s ease;
+    padding:8px 0;
 }
 
 .menu a:hover{
-    color:#ffd700;
+    color:#FFD700;
 }
 
 .menu .active{
-    color:#ffd700;
-    border-bottom:2px solid #ffd700;
-    padding-bottom:5px;
+    color:#FFD700;
+    border-bottom:2px solid #FFD700;
+}
+
+/* ===========================
+   Giriş / Kayıt
+=========================== */
+
+.auth-buttons{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    white-space:nowrap;
+}
+
+.login-btn{
+    padding:10px 20px;
+    border:2px solid #fff;
+    border-radius:30px;
+    color:#fff !important;
+    transition:.3s;
+}
+
+.login-btn:hover{
+    background:#fff;
+    color:#0057B8 !important;
+}
+
+.register-btn{
+    padding:10px 20px;
+    background:#FFD700;
+    color:#003366 !important;
+    border-radius:30px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.register-btn:hover{
+    background:#FFC107;
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(255,193,7,.35);
+}
+
+.active-btn{
+    box-shadow:0 0 10px rgba(255,255,255,.25);
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width:992px){
+
+    .navbar{
+        padding:15px 25px;
+    }
+
+    .menu{
+        gap:20px;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    .menu a{
+        font-size:15px;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:18px;
+        padding:20px;
+    }
+
+    .menu{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:18px;
+    }
+
+    .auth-buttons{
+        justify-content:center;
+    }
+
+}
+
+@media (max-width:480px){
+
+    .logo{
+        font-size:20px;
+    }
+
+    .menu{
+        flex-direction:column;
+        gap:14px;
+    }
+
+    .auth-buttons{
+        width:100%;
+        flex-direction:column;
+    }
+
+    .login-btn,
+    .register-btn{
+        width:100%;
+        text-align:center;
+    }
+
 }

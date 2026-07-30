@@ -1,0 +1,107 @@
+/* Sayfa */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #003366, #0057B8);
+  padding: 20px;
+}
+
+/* Kart */
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Başlık */
+.login-card h1 {
+  text-align: center;
+  color: #003366;
+  margin-bottom: 30px;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Etiket */
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Input */
+.form-group input {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Input Focus */
+.form-group input:focus {
+  outline: none;
+  border-color: #0057B8;
+  box-shadow: 0 0 8px rgba(0, 87, 184, 0.25);
+}
+
+/* Buton */
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  background: #0057B8;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #003366;
+  transform: translateY(-2px);
+}
+
+/* Alt Linkler */
+.login-links {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.login-links a {
+  color: #0057B8;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-links a:hover {
+  text-decoration: underline;
+}
+
+.login-links p {
+  margin-top: 15px;
+  color: #555;
+}
+
+.error-message{
+    color:#d90429;
+    background:#ffe5e5;
+    padding:10px;
+    border-radius:8px;
+    text-align:center;
+    margin-bottom:15px;
+    font-size:14px;
+}
