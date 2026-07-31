@@ -1,146 +1,142 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { login } from "../api/authService";
 import "./Login.css";
 
 function Login() {
-
-  const [email, setEmail] = useState("");
+  const [identity, setIdentity] = useState("");
   const [password, setPassword] = useState("");
 
-  // Hata mesajı için state
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
+  const validateInput = () => {
+    const value = identity.trim();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Önce eski hatayı temizle
-    setError("");
-
-
-    // Boş alan kontrolü
-    if (!email || !password) {
-      setError("Lütfen tüm alanları doldurunuz.");
-      return;
+    if (!value || !password.trim()) {
+      return "Lütfen tüm alanları doldurunuz.";
     }
 
+    const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    const isTc = /^\d{11}$/.test(value);
 
-    // E-posta kontrolü
-    if (!email.includes("@")) {
-      setError("Geçerli bir e-posta adresi giriniz.");
-      return;
+    if (!isEmail && !isTc) {
+      return "Geçerli bir e-posta veya 11 haneli TC Kimlik No giriniz.";
     }
 
-
-    // Şifre uzunluğu kontrolü
     if (password.length < 6) {
-      setError("Şifre en az 6 karakter olmalıdır.");
-      return;
+      return "Şifre en az 6 karakter olmalıdır.";
     }
 
-
-    // Kontroller başarılıysa
-    console.log("=== Giriş Bilgileri ===");
-    console.log("E-posta:", email);
-    console.log("Şifre:", password);
-
-
-    alert("Giriş başarılı!");
+    return "";
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setError("");
+
+    const validationError = validateInput();
+
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      /*
+      const response = await login({
+        identity: identity.trim(),
+        password,
+      });
+
+      console.log(response.data);
+
+      localStorage.setItem("token", response.data.token);
+      */
+
+      console.log("=== Giriş Bilgileri ===");
+      console.log("Kimlik:", identity);
+      console.log("Şifre:", password);
+
+      alert("Giriş başarılı!");
+
+      setIdentity("");
+      setPassword("");
+    } catch (err) {
+      console.error(err);
+      setError("E-posta/TC Kimlik No veya şifre hatalı.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="login-container">
-
       <div className="login-card">
-
         <h1>Giriş Yap</h1>
 
-
-        <form onSubmit={handleSubmit}>
-
-
+        <form onSubmit={handleSubmit} noValidate>
           <div className="form-group">
-
-            <label>
+            <label htmlFor="identity">
               E-posta veya TC Kimlik No
             </label>
 
             <input
+              id="identity"
               type="text"
               placeholder="E-posta veya TC Kimlik No"
-              value={email}
-              onChange={(e)=>setEmail(e.target.value)}
+              value={identity}
+              onChange={(e) => setIdentity(e.target.value)}
+              autoComplete="username"
+              required
             />
-
           </div>
 
-
-
           <div className="form-group">
-
-            <label>
+            <label htmlFor="password">
               Şifre
             </label>
 
             <input
+              id="password"
               type="password"
               placeholder="Şifrenizi giriniz"
               value={password}
-              onChange={(e)=>setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
+              autoComplete="current-password"
+              required
             />
-
           </div>
 
+          {error && <p className="error-message">{error}</p>}
 
-
-          {
-            error && (
-              <p className="error-message">
-                {error}
-              </p>
-            )
-          }
-
-
-
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="login-btn"
+            disabled={loading}
           >
-            Giriş Yap
+            {loading ? "Giriş Yapılıyor..." : "Giriş Yap"}
           </button>
-
-
         </form>
 
-
-
         <div className="login-links">
-
-          <a href="#">
+          <Link to="/forgot-password">
             Şifremi Unuttum?
-          </a>
-
+          </Link>
 
           <p>
             Hesabınız yok mu?{" "}
-
             <Link to="/register">
               Kayıt Ol
             </Link>
-
           </p>
-
-
         </div>
-
-
       </div>
-
     </div>
   );
 }
-
 
 export default Login;

@@ -12,22 +12,22 @@
 .login-card {
   width: 100%;
   max-width: 420px;
-  background: #ffffff;
-  padding: 35px;
+  background: linear-gradient(135deg, #003366, #0057B8);
+  padding: 10px;
   border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 /* Başlık */
 .login-card h1 {
   text-align: center;
-  color: #003366;
-  margin-bottom: 30px;
+  color: white;
+  margin-bottom: 20px;
 }
 
 /* Form */
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 /* Etiket */
@@ -35,25 +35,27 @@
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: #333;
+  color: white;
 }
 
 /* Input */
 .form-group input {
   width: 100%;
   padding: 13px 15px;
-  border: 1px solid #ccc;
+  border: 1px solid #ffffff;
   border-radius: 10px;
   font-size: 15px;
-  transition: all 0.3s ease;
   box-sizing: border-box;
+  background: white;
+  color: #003366;
+  transition: 0.3s;
 }
 
 /* Input Focus */
 .form-group input:focus {
   outline: none;
-  border-color: #0057B8;
-  box-shadow: 0 0 8px rgba(0, 87, 184, 0.25);
+  border-color: #66b3ff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
 
 /* Buton */
@@ -61,18 +63,26 @@
   width: 100%;
   padding: 14px;
   background: #0057B8;
-  color: white;
-  border: none;
+  color: #ffffff;
+  border: 2px solid #ffffff;
   border-radius: 10px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 }
 
 .login-btn:hover {
   background: #003366;
   transform: translateY(-2px);
+}
+
+
+/* Buton pasif */
+.login-btn:disabled {
+  background: #b0c4de;
+  color: #ffffff;
+  cursor: not-allowed;
 }
 
 /* Alt Linkler */
@@ -82,7 +92,7 @@
 }
 
 .login-links a {
-  color: #0057B8;
+  color: white;
   text-decoration: none;
   font-weight: 600;
 }
@@ -93,15 +103,17 @@
 
 .login-links p {
   margin-top: 15px;
-  color: #555;
+  color: white;
 }
 
-.error-message{
-    color:#d90429;
-    background:#ffe5e5;
-    padding:10px;
-    border-radius:8px;
-    text-align:center;
-    margin-bottom:15px;
-    font-size:14px;
+/* Hata Mesajı */
+.error-message {
+  color: #8b0000;
+  background: #ffe5e5;
+  border: 1px solid #ffb3b3;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 14px;
 }

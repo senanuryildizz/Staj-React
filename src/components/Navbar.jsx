@@ -1,73 +1,101 @@
-import "./Navbar.css";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import "./Navbar.css";
 
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <nav className="navbar">
+
       {/* Logo */}
-      <div className="logo">
-        ✈️ <span>FlyTicket</span>
-      </div>
+      <NavLink to="/" className="logo" onClick={closeMenu}>
+
+        <div className="logo-icon">
+          🛫
+        </div>
+
+        <div className="logo-text">
+          <h2>FlyTicket</h2>
+          <span>Discover the Sky</span>
+        </div>
+
+      </NavLink>
+
+      {/* Hamburger */}
+
+      <button
+        type="button"
+        className="hamburger"
+        aria-label="Menüyü Aç"
+        aria-expanded={menuOpen}
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        {menuOpen ? "✕" : "☰"}
+      </button>
 
       {/* Menü */}
-      <ul className="menu">
-        <li>
-          <NavLink
-            to="/"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            Ana Sayfa
-          </NavLink>
-        </li>
 
-        <li>
-          <NavLink
-            to="/ucuslar"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            Uçuşlar
-          </NavLink>
-        </li>
+      <div className={`nav-links ${menuOpen ? "open" : ""}`}>
 
-        <li>
-          <NavLink
-            to="/hakkimizda"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            Hakkımızda
-          </NavLink>
-        </li>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "active" : "")}
+          onClick={closeMenu}
+        >
+          Ana Sayfa
+        </NavLink>
 
-        <li>
-          <NavLink
-            to="/iletisim"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            İletişim
-          </NavLink>
-        </li>
+        <NavLink
+          to="/ucuslar"
+          className={({ isActive }) => (isActive ? "active" : "")}
+          onClick={closeMenu}
+        >
+          Uçuşlar
+        </NavLink>
 
-        {/* Sağ Taraftaki Butonlar */}
-        <li className="auth-buttons">
+        <NavLink
+          to="/hakkimizda"
+          className={({ isActive }) => (isActive ? "active" : "")}
+          onClick={closeMenu}
+        >
+          Hakkımızda
+        </NavLink>
+
+        <NavLink
+          to="/iletisim"
+          className={({ isActive }) => (isActive ? "active" : "")}
+          onClick={closeMenu}
+        >
+          İletişim
+        </NavLink>
+
+        <div className="auth-buttons">
+
           <NavLink
             to="/login"
-            className={({ isActive }) =>
-              `login-btn ${isActive ? "active-btn" : ""}`
-            }
+            className="login-btn"
+            onClick={closeMenu}
           >
             Giriş Yap
           </NavLink>
 
           <NavLink
             to="/register"
-            className={({ isActive }) =>
-              `register-btn ${isActive ? "active-btn" : ""}`
-            }
+            className="register-btn"
+            onClick={closeMenu}
           >
             Kayıt Ol
           </NavLink>
-        </li>
-      </ul>
+
+        </div>
+
+      </div>
+
     </nav>
   );
 }

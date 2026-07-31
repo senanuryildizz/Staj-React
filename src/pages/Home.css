@@ -1,0 +1,370 @@
+/* ==========================================
+   HOME
+========================================== */
+
+.home{
+    background:#f5f8fc;
+    min-height:100vh;
+}
+
+/* ==========================================
+   HERO
+========================================== */
+
+.hero{
+    background:linear-gradient(135deg,#003366,#0057B8);
+    color:white;
+
+    min-height:65vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:80px 20px;
+}
+
+.hero-content{
+    max-width:750px;
+}
+
+.hero-content h1{
+
+    font-size:52px;
+
+    margin-bottom:20px;
+
+    font-weight:700;
+
+    line-height:1.2;
+}
+
+.hero-content p{
+
+    font-size:19px;
+
+    color:#e4eef8;
+
+    line-height:1.8;
+
+    margin-bottom:40px;
+}
+
+/* ==========================================
+   HERO BUTTONS
+========================================== */
+
+.hero-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+}
+
+.primary-btn{
+
+    background:white;
+
+    color:#0057B8;
+
+    border:none;
+
+    padding:15px 35px;
+
+    border-radius:40px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
+}
+
+.primary-btn:hover{
+
+    transform:translateY(-3px);
+
+    background:#edf6ff;
+}
+
+.secondary-btn{
+
+    background:transparent;
+
+    color:white;
+
+    border:2px solid rgba(255,255,255,.35);
+
+    padding:15px 35px;
+
+    border-radius:40px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.secondary-btn:hover{
+
+    background:white;
+
+    color:#0057B8;
+}
+
+/* ==========================================
+   SECTION TITLE
+========================================== */
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:50px;
+}
+
+.section-title h2{
+
+    font-size:36px;
+
+    color:#003366;
+
+    margin-bottom:12px;
+}
+
+.section-title p{
+
+    color:#666;
+
+    font-size:17px;
+
+    max-width:700px;
+
+    margin:auto;
+}
+
+/* ==========================================
+   POPULAR SECTION
+========================================== */
+
+.popular-section{
+
+    padding:80px 50px;
+}
+
+.products-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+}
+
+/* ==========================================
+   FEATURES
+========================================== */
+
+.features{
+
+    padding:80px 50px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+}
+
+.feature-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.35s;
+}
+
+.feature-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+}
+
+.feature-card span{
+
+    font-size:42px;
+
+    display:block;
+
+    margin-bottom:18px;
+}
+
+.feature-card h3{
+
+    color:#003366;
+
+    margin-bottom:12px;
+
+    font-size:22px;
+}
+
+.feature-card p{
+
+    color:#666;
+
+    line-height:1.7;
+}
+
+/* ==========================================
+   STATS
+========================================== */
+
+.stats{
+
+    background:linear-gradient(135deg,#003366,#0057B8);
+
+    padding:80px 40px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:30px;
+
+    text-align:center;
+}
+
+.stat-box{
+
+    color:white;
+}
+
+.stat-box h2{
+
+    font-size:46px;
+
+    margin-bottom:12px;
+}
+
+.stat-box p{
+
+    font-size:18px;
+
+    color:#d9e7f8;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+    .hero-content h1{
+
+        font-size:42px;
+    }
+
+    .popular-section,
+    .features{
+
+        padding:60px 25px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .hero{
+
+        min-height:55vh;
+
+        padding:60px 20px;
+    }
+
+    .hero-content h1{
+
+        font-size:34px;
+    }
+
+    .hero-content p{
+
+        font-size:17px;
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        align-items:center;
+    }
+
+    .primary-btn,
+    .secondary-btn{
+
+        width:100%;
+
+        max-width:320px;
+    }
+
+    .section-title h2{
+
+        font-size:30px;
+    }
+
+    .section-title p{
+
+        font-size:16px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .hero-content h1{
+
+        font-size:28px;
+    }
+
+    .hero-content p{
+
+        font-size:15px;
+    }
+
+    .popular-section,
+    .features{
+
+        padding:50px 15px;
+    }
+
+    .feature-card{
+
+        padding:25px;
+    }
+
+    .stat-box h2{
+
+        font-size:36px;
+    }
+
+}
